@@ -13,10 +13,11 @@
 #define KEYS_R RT0 RT1 RT2 RT3 RT4 RM0 RM1 RM2 RM3 RM4 RB0 RB1 RB2 RB3 RB4  // right-hand keys
 #define THUMBS LH1 LH0 RH0 RH1                                              // thumb keys
 
-layer_rep: layer_repeat {
+lrep: layer_repeat {
     compatible = "zmk,behavior-hold-tap";
     label = "LAYER_HOLD_REPEAT_TAP";
-    #binding cells = <1>;
+    flavor = "hold-preferred"
+    #binding cells = <2>;
     bindings = <&mo>, <&key_repeat>;
     tapping-term-ms = <200>;
 }
@@ -132,7 +133,7 @@ ZMK_HOLD_TAP(hmr,
 &none  &kp W  &kp F  &kp P      &kp B          &kp J      &kp L           &kp U      &kp Y    &none
 &hml RGUI A  &hml RALT R  &hml RCTRL S  &hml RSHFT T      &kp G          &kp M      &hml RSHIFT N           &hmr RCTRL E      &hml RALT I    &hml RGUI O
 &kp Z  &kp X  &kp C  &kp D      &kp V          &kp K      &kp H           &kp COMMA  &kp DOT  &kp FSLH
-                     &lt NAV TAB  &lt RSYM SPACE    &lt LSYM RET  &layer_rep I3
+                     &lt NAV TAB  &lt RSYM SPACE    &lt LSYM RET  &lrep I3 0
             >;
         };
 
