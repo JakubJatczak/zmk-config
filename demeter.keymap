@@ -158,7 +158,7 @@ ZMK_HOLD_TAP(hmr,
         Navigation {
             bindings = <
 &trans  &trans  &trans  &trans  &trans    &trans  &trans    &trans     &trans     &trans
-&trans  &trans  &trans  &trans  &trans    &none   &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT
+&sk LGUI &sk LALT  &sk LCTRL  &sk LSHFT  &trans  &trans    &none   &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT
 &trans  &trans  &trans  &trans  &trans    &trans  &kp HOME  &kp PG_DN  &kp PG_UP  &kp END
                         &trans  &trans    &trans  &trans
             >;
