@@ -1,0 +1,11 @@
+file_format: "1"
+id: demeter
+name: Demeter
+type: shield
+url: https://github.com/davidphilipbarr/Demeter
+requires: [pro_micro]
+features:
+  - keys
+siblings:
+  - demeter_left
+  - demeter_right
