@@ -35,6 +35,12 @@ ZMK_HOLD_TAP(hmr,
     hold-trigger-on-release;             // delay positional check until key-release
 )
 
+/* lt with key_repeat under tap */
+ZMK_HOLD_TAP(lrep,
+    tapping-term-ms = <150>;
+    bindings = <&mo, &key_repeat>;
+)
+
 / {
     combos {
         compatible = "zmk,combos";
@@ -123,7 +129,7 @@ ZMK_HOLD_TAP(hmr,
 &none  &kp W  &kp F  &kp P      &kp B          &kp J      &kp L           &kp U      &kp Y    &none
 &hml RGUI A  &hml RALT R  &hml RCTRL S  &hml RSHFT T      &kp G          &kp M      &hml RSHIFT N           &hmr RCTRL E      &hml RALT I    &hml RGUI O
 &kp Z  &kp X  &kp C  &kp D      &kp V          &kp K      &kp H           &kp COMMA  &kp DOT  &kp FSLH
-                     &lt NAV TAB  &lt RSYM SPACE    &lt LSYM RET  &mo I3
+                     &lt NAV TAB  &lt RSYM SPACE    &lt LSYM RET  &lrep I3
             >;
         };
 
