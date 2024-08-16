@@ -37,7 +37,10 @@ ZMK_HOLD_TAP(hmr,
 
 /* lt with key_repeat under tap */
 ZMK_HOLD_TAP(lrep,
+    flavor = "balanced";
     tapping-term-ms = <150>;
+    quick-tap-ms = <80>;                // repeat on tap-into-hold
+    require-prior-idle-ms = <10>;
     bindings = <&mo, &key_repeat>;
 )
 
@@ -64,26 +67,26 @@ ZMK_HOLD_TAP(lrep,
 
         esc {
             bindings = <&kp ESCAPE>;
-            key-positions = <8 19>;
+            key-positions = <8 9>;
             layers = <DEF>;
         };
 
         lock {
             bindings = <&kp RG(PAUSE_BREAK)>;
-            key-positions = <10 1 8 19>;
+            key-positions = <0 1 8 9>;
             layers = <DEF>;
         };
 
-        symbolReturt {
+        symbolReturn {
             bindings = <&kp RETURN>;
             key-positions = <17 18>;
-            layers = <RSYM>;
+            layers = <LSYM>;
         };
 
         symbolSpace {
             bindings = <&kp SPACE>;
             key-positions = <11 12>;
-            layers = <LSYM>;
+            layers = <RSYM>;
         };
 
         delete {
@@ -126,10 +129,10 @@ ZMK_HOLD_TAP(lrep,
 
         Default {
             bindings = <
-&none  &kp W  &kp F  &kp P      &kp B          &kp J      &kp L           &kp U      &kp Y    &none
-&hml RGUI A  &hml RALT R  &hml RCTRL S  &hml RSHFT T      &kp G          &kp M      &hml RSHIFT N           &hmr RCTRL E      &hml RALT I    &hml RGUI O
-&kp Z  &kp X  &kp C  &kp D      &kp V          &kp K      &kp H           &kp COMMA  &kp DOT  &kp FSLH
-                     &lt NAV TAB  &lt RSYM SPACE    &lt LSYM RET  &lrep I3
+&none         &kp W        &kp F         &kp P             &kp B           &kp J      &kp L          &kp U           &kp Y          &none
+&hml RGUI A   &hml RALT R  &hml RCTRL S  &hml RSHFT T      &kp G           &kp M      &hml RSHIFT N  &hmr RCTRL E    &hml RALT I    &hml RGUI O
+&kp Z         &kp X        &kp C         &kp D             &kp V           &kp K      &kp H          &kp COMMA       &kp DOT        &kp FSLH
+                                         &lt NAV TAB       &lt RSYM SPACE  &lt LSYM RET  &lrep I3
             >;
         };
 
@@ -144,19 +147,19 @@ ZMK_HOLD_TAP(lrep,
 
         RightSymbols {
             bindings = <
-&none  &none  &none  &none  &none    &kp LS(EXCL)  &kp LS(EXCL)  &kp LS(UNDER)  &kp LS(AT)    &none
-&kp N6  &kp N4  &kp N0  &kp N2  &none    &kp LS(STAR)  &kp EQUAL     &kp LS(PIPE)   &kp LS(PLUS)  &kp MINUS
-&none   &none  &none  &kp N8  &none    &kp LS(AMPS)  &kp GRAVE     &kp LS(LT)     &kp LS(GT)    &kp LS(QMARK)
-                        &none  &none    &kp RET       &none
+&none   &none   &none   &none   &none         &kp LS(EXCL)  &kp LS(EXCL)  &kp LS(UNDER)  &kp LS(AT)    &none
+&kp N6  &kp N4  &kp N0  &kp N2  &none         &kp LS(STAR)  &kp EQUAL     &kp LS(PIPE)   &kp LS(PLUS)  &kp MINUS
+&none   &none   &none   &kp N8  &none         &kp LS(AMPS)  &kp GRAVE     &kp LS(LT)     &kp LS(GT)    &kp LS(QMARK)
+                         &none  &none         &kp RET       &none
             >;
         };
 
         Navigation {
             bindings = <
-&trans  &trans  &trans  &trans  &trans    &trans  &trans    &trans     &trans     &trans
-&sk LGUI &sk LALT  &sk LCTRL  &sk LSHFT  &trans  &trans    &none   &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT
-&trans  &trans  &trans  &trans  &trans    &trans  &kp HOME  &kp PG_DN  &kp PG_UP  &kp END
-                        &trans  &trans    &trans  &trans
+&trans   &trans    &trans     &trans     &trans      &trans  &trans    &trans     &trans     &trans
+&sk LGUI &sk LALT  &sk LCTRL  &sk LSHFT  &trans      &trans  &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT
+&trans   &trans    &trans     &trans     &trans      &trans  &kp HOME  &kp PG_DN  &kp PG_UP  &kp END
+                              &trans     &trans      &trans  &trans
             >;
         };
 
