@@ -42,6 +42,15 @@ ZMK_HOLD_TAP(lrep,
     quick-tap-ms = <80>;                // repeat on tap-into-hold
     require-prior-idle-ms = <10>;
     bindings = <&mo, &key_repeat>;
+
+/* Nav layer HRMs */
+ZMK_HOLD_TAP(navht,
+    flavor = "balanced";
+    tapping-term-ms = <280>;
+    quick-tap-ms = <175>;                // repeat on tap-into-hold
+    require-prior-idle-ms = <150>;
+    bindings = <&kp>, <&kp>;
+    hold-trigger-on-release;             // delay positional check until key-release
 )
 
 / {
@@ -165,10 +174,10 @@ ZMK_HOLD_TAP(lrep,
 
         i3 {
             bindings = <
-&trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans    &trans  &trans
+&kp RG(N1)  &kp RG(N2)  &kp RG(N3)  &kp RG(N4)          &kp RG(N0)            &kp RG(F6)     &kp RG(F7)    &kp RG(F8)    &kp RG(F9)    &kp RG(F10) 
+&kp RG(A)   &kp RG(R)   &kp RG(F)   &navht RSHFT RG(T)  &kp RGGG(RS(EQUAL))   &kp RG(F1)     &none         &none         &none         &kp RG(RS(PAUSE_BREAK))
+&none       &none       &none       &none               &kp RG(RS(SPACE))     &kp RG(RS(Q))  &kp RG(SLASH) &kp RG(EQUAL) &kp RG(MINUS) &kp RG(BACKSLASH)
+                                    &kp RG(SPACE)       &kp RG(ENTER)         &none          &none 
             >;
         };
     };
