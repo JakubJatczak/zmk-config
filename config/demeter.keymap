@@ -42,6 +42,7 @@ ZMK_HOLD_TAP(lrep,
     quick-tap-ms = <80>;                // repeat on tap-into-hold
     require-prior-idle-ms = <10>;
     bindings = <&mo, &key_repeat>;
+)
 
 /* Nav layer HRMs */
 ZMK_HOLD_TAP(navht,
@@ -139,7 +140,7 @@ ZMK_HOLD_TAP(navht,
         Default {
             bindings = <
 &none         &kp W        &kp F         &kp P             &kp B           &kp J      &kp L          &kp U           &kp Y          &none
-&hml RGUI A   &hml RALT R  &hml RCTRL S  &hml RSHFT T      &kp G           &kp M      &hml RSHIFT N  &hmr RCTRL E    &hml RALT I    &hml RGUI O
+&hml RGUI A   &hml RALT R  &hml RCTRL S  &hml RSHFT T      &kp G           &kp M      &hmr RSHIFT N  &hmr RCTRL E    &hmr RALT I    &hmr RGUI O
 &kp Z         &kp X        &kp C         &kp D             &kp V           &kp K      &kp H          &kp COMMA       &kp DOT        &kp FSLH
                                          &lt NAV TAB       &lt RSYM SPACE  &lt LSYM RET  &lrep I3
             >;
@@ -175,7 +176,7 @@ ZMK_HOLD_TAP(navht,
         i3 {
             bindings = <
 &kp RG(N1)  &kp RG(N2)  &kp RG(N3)  &kp RG(N4)          &kp RG(N0)            &kp RG(F6)     &kp RG(F7)    &kp RG(F8)    &kp RG(F9)    &kp RG(F10) 
-&kp RG(A)   &kp RG(R)   &kp RG(F)   &navht RSHFT RG(T)  &kp RGGG(RS(EQUAL))   &kp RG(F1)     &none         &none         &none         &kp RG(RS(PAUSE_BREAK))
+&kp RG(A)   &kp RG(R)   &kp RG(F)   &navht RSHFT RG(T)  &kp RG(RS(EQUAL))     &kp RG(F1)     &none         &none         &none         &kp RG(RS(PAUSE_BREAK))
 &none       &none       &none       &none               &kp RG(RS(SPACE))     &kp RG(RS(Q))  &kp RG(SLASH) &kp RG(EQUAL) &kp RG(MINUS) &kp RG(BACKSLASH)
                                     &kp RG(SPACE)       &kp RG(ENTER)         &none          &none 
             >;
