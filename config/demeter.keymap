@@ -13,23 +13,45 @@
 #define KEYS_R RT0 RT1 RT2 RT3 RT4 RM0 RM1 RM2 RM3 RM4 RB0 RB1 RB2 RB3 RB4  // right-hand keys
 #define THUMBS LH1 LH0 RH0 RH1                                              // thumb keys
 
-/* left-hand HRMs */
+/* left-hand text HRMs */
 ZMK_HOLD_TAP(hml,
     flavor = "balanced";
     tapping-term-ms = <280>;
     quick-tap-ms = <175>;                // repeat on tap-into-hold
-    require-prior-idle-ms = <150>;
+    require-prior-idle-ms = <90>;
     bindings = <&kp>, <&kp>;
     hold-trigger-key-positions = <KEYS_R THUMBS>;
     hold-trigger-on-release;             // delay positional check until key-release
 )
 
-/* right-hand HRMs */
+/* left-hand slow HRMs */
+ZMK_HOLD_TAP(shml,
+    flavor = "balanced";
+    tapping-term-ms = <280>;
+    quick-tap-ms = <175>;                // repeat on tap-into-hold
+    require-prior-idle-ms = <200>;
+    bindings = <&kp>, <&kp>;
+    hold-trigger-key-positions = <KEYS_R THUMBS>;
+    hold-trigger-on-release;             // delay positional check until key-release
+)
+
+/* right-hand text HRMs */
 ZMK_HOLD_TAP(hmr,
     flavor = "balanced";
     tapping-term-ms = <280>;
     quick-tap-ms = <175>;                // repeat on tap-into-hold
-    require-prior-idle-ms = <150>;
+    require-prior-idle-ms = <90>;
+    bindings = <&kp>, <&kp>;
+    hold-trigger-key-positions = <KEYS_L THUMBS>;
+    hold-trigger-on-release;             // delay positional check until key-release
+)
+
+/* right-hand slow HRMs */
+ZMK_HOLD_TAP(shmr,
+    flavor = "balanced";
+    tapping-term-ms = <280>;
+    quick-tap-ms = <175>;                // repeat on tap-into-hold
+    require-prior-idle-ms = <200>;
     bindings = <&kp>, <&kp>;
     hold-trigger-key-positions = <KEYS_L THUMBS>;
     hold-trigger-on-release;             // delay positional check until key-release
@@ -139,9 +161,9 @@ ZMK_HOLD_TAP(navht,
 
         Default {
             bindings = <
-&none         &kp W        &kp F         &kp P             &kp B           &kp J      &kp L          &kp U           &kp Y          &none
-&hml RGUI A   &hml RALT R  &hml RCTRL S  &hml RSHFT T      &kp G           &kp M      &hmr RSHIFT N  &hmr RCTRL E    &hmr RALT I    &hmr RGUI O
-&kp Z         &kp X        &kp C         &kp D             &kp V           &kp K      &kp H          &kp COMMA       &kp DOT        &kp FSLH
+&none          &kp W        &kp F          &kp P             &kp B           &kp J      &kp L          &kp U           &kp Y          &none
+&shml RGUI A   &hml RALT R  &shml RCTRL S  &hml RSHFT T      &kp G           &kp M      &hmr RSHIFT N  &shmr RCTRL E    &hmr RALT I    &shmr RGUI O
+&kp Z          &kp X        &kp C          &kp D             &kp V           &kp K      &kp H          &kp COMMA       &kp DOT        &kp FSLH
                                          &lt NAV TAB       &lt RSYM SPACE  &lt LSYM RET  &lrep I3
             >;
         };
