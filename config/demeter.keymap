@@ -9,6 +9,7 @@
 #define RSYM 2
 #define NAV 3
 #define I3 4
+#define BLUET 5
 
 #define KEYS_L LT0 LT1 LT2 LT3 LT4 LM0 LM1 LM2 LM3 LM4 LB0 LB1 LB2 LB3 LB4  // left-hand keys
 #define KEYS_R RT0 RT1 RT2 RT3 RT4 RM0 RM1 RM2 RM3 RM4 RB0 RB1 RB2 RB3 RB4  // right-hand keys
@@ -17,7 +18,7 @@
 /* left-hand text HRMs */
 ZMK_HOLD_TAP(hml,
     flavor = "balanced";
-    tapping-term-ms = <180>;
+    tapping-term-ms = <400>;
     quick-tap-ms = <175>;                // repeat on tap-into-hold
     require-prior-idle-ms = <70>;
     bindings = <&kp>, <&kp>;
@@ -28,9 +29,9 @@ ZMK_HOLD_TAP(hml,
 /* left-hand slow HRMs */
 ZMK_HOLD_TAP(shml,
     flavor = "balanced";
-    tapping-term-ms = <280>;
+    tapping-term-ms = <300>;
     quick-tap-ms = <175>;                // repeat on tap-into-hold
-    require-prior-idle-ms = <200>;
+    require-prior-idle-ms = <280>;
     bindings = <&kp>, <&kp>;
     hold-trigger-key-positions = <KEYS_R THUMBS>;
     hold-trigger-on-release;             // delay positional check until key-release
@@ -39,7 +40,7 @@ ZMK_HOLD_TAP(shml,
 /* right-hand text HRMs */
 ZMK_HOLD_TAP(hmr,
     flavor = "balanced";
-    tapping-term-ms = <180>;
+    tapping-term-ms = <400>;
     quick-tap-ms = <175>;                // repeat on tap-into-hold
     require-prior-idle-ms = <70>;
     bindings = <&kp>, <&kp>;
@@ -50,9 +51,9 @@ ZMK_HOLD_TAP(hmr,
 /* right-hand slow HRMs */
 ZMK_HOLD_TAP(shmr,
     flavor = "balanced";
-    tapping-term-ms = <280>;
+    tapping-term-ms = <300>;
     quick-tap-ms = <175>;                // repeat on tap-into-hold
-    require-prior-idle-ms = <200>;
+    require-prior-idle-ms = <280>;
     bindings = <&kp>, <&kp>;
     hold-trigger-key-positions = <KEYS_L THUMBS>;
     hold-trigger-on-release;             // delay positional check until key-release
@@ -136,6 +137,11 @@ ZMK_HOLD_TAP(shmr,
             key-positions = <27 28>;
             layers = <DEF>;
         };
+
+        bluetoothLay {
+            bindings = <&mo BLUET>;
+            key-positions = <0 5>;
+        };
     };
 
     keymap {
@@ -155,7 +161,7 @@ ZMK_HOLD_TAP(shmr,
 &kp LS(DLLR)   &kp LS(LBRC)  &kp LS(RBRC)  &kp LS(DQT)    &kp LS(PIPE)     &none  &none  &none  &none  &none
 &kp LS(POUND)  &kp LS(LPAR)  &kp LS(RPAR)  &kp SEMI       &kp LS(TILDE)    &none  &kp N3  &kp N1  &kp N5  &kp N7
 &kp LS(PRCNT)  &kp LBKT      &kp RBKT      &kp LS(CARET)  &kp BSLH         &none   &kp N9  &none  &none  &none
-                                           &kp DEL        &kp SPACE        &none  &none
+                                           &kp DEL        &lt RSYM SPACE   &none  &none
             >;
         };
 
@@ -164,15 +170,15 @@ ZMK_HOLD_TAP(shmr,
 &none   &none   &none   &none   &none         &kp LS(EXCL)  &kp LS(EXCL)  &kp LS(UNDER)  &kp LS(AT)    &none
 &kp N6  &kp N4  &kp N0  &kp N2  &none         &kp LS(STAR)  &kp EQUAL     &kp LS(PIPE)   &kp LS(PLUS)  &kp MINUS
 &none   &none   &none   &kp N8  &none         &kp LS(AMPS)  &kp GRAVE     &kp LS(LT)     &kp LS(GT)    &kp LS(QMARK)
-                         &none  &none         &kp RET       &none
+                         &none  &none         &lt LSYM RET  &none
             >;
         };
 
         Navigation {
             bindings = <
-&trans   &trans    &trans     &trans     &trans      &trans  &bt BT_SEL 0    &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_CLR
-&sk LGUI &sk LALT  &sk LCTRL  &sk LSHFT  &trans      &trans  &kp LEFT        &kp DOWN         &kp UP           &kp RIGHT
-&trans   &trans    &trans     &trans     &trans      &trans  &kp HOME        &kp PG_DN        &kp PG_UP        &kp END
+&kp F1   &kp F2    &kp F3     &kp F4     &kp F5      &kp F6  &kp F7     &kp F8      &kp F9      &kp F10
+&sk LGUI &sk LALT  &sk LCTRL  &sk LSHFT  &trans      &trans  &kp LEFT   &kp DOWN    &kp UP      &kp RIGHT
+&trans   &trans    &trans     &trans     &trans      &trans  &kp HOME   &kp PG_DN   &kp PG_UP   &kp END
                               &trans     &trans      &trans  &trans
             >;
         };
@@ -183,6 +189,15 @@ ZMK_HOLD_TAP(shmr,
 &kp RG(A)   &kp RG(R)   &kp RG(F)   &kp RG(T)  &kp RG(RS(EQUAL))     &kp RG(F1)     &none         &none         &none         &kp RG(RS(PAUSE_BREAK))
 &none       &none       &none       &none               &kp RG(RS(SPACE))     &kp RG(RS(Q))  &kp RG(SLASH) &kp RG(EQUAL) &kp RG(MINUS) &kp RG(BACKSLASH)
                                     &kp RG(SPACE)       &kp RG(ENTER)         &none          &none 
+            >;
+        };
+
+        bluetooth {
+            bindings = <
+&none       &none         &none         &none         &none       &none &none &none &none &none &none
+&none       &none         &none         &none         &none       &none &none &none &none &none &none
+&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &none       &none &none &none &none &none &none
+                                        &none         &none       &none &none   
             >;
         };
     };
