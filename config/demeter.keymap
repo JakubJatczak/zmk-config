@@ -149,7 +149,7 @@ ZMK_HOLD_TAP(lrep,
 
         bluetoothLay {
             bindings = <&mo BLUET>;
-            key-positions = <0 5>;
+            key-positions = <9 18>;
         };
 
         leftStickyShift {
@@ -215,10 +215,10 @@ ZMK_HOLD_TAP(lrep,
 
         bluetooth {
             bindings = <
-&none       &none         &none         &none         &none       &none &none &none &none &none &none
-&none       &none         &none         &none         &none       &none &none &none &none &none &none
-&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &none       &none &none &none &none &none &none
-                                        &none         &none       &none &none   
+&bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &none  &bt BT_CLR     &none &none &none &none &none &none
+&none         &none         &none         &none  &none          &none &none &none &none &none &none
+&none         &none         &none         &none  &none          &none &none &none &none &none &none
+                                          &none  &none          &none &none
             >;
         };
     };
