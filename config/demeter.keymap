@@ -115,7 +115,7 @@ ZMK_HOLD_TAP(lrep,
 
         delete {
             bindings = <&kp DELETE>;
-            key-positions = <10 1>;
+            key-positions = <0 1>;
             layers = <DEF>;
         };
 
@@ -154,13 +154,13 @@ ZMK_HOLD_TAP(lrep,
 
         leftStickyShift {
             bindings = <&sk LSHFT>;
-            key-positions = <12 24>;
+            key-positions = <12 23>;
             layers = <DEF>;
         };
 
         rightStickyShift {
             bindings = <&sk RSHFT>;
-            key-positions = <17 27>;
+            key-positions = <17 26>;
             layers = <DEF>;
         };
     };
