@@ -68,6 +68,10 @@ ZMK_HOLD_TAP(lrep,
     bindings = <&mo>, <&key_repeat>;
 )
 
+&caps_word {
+    /delete-property/ ignore-modifiers;
+};
+
 / {
     combos {
         compatible = "zmk,combos";
