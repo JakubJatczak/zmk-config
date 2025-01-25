@@ -72,6 +72,11 @@ ZMK_HOLD_TAP(lrep,
     /delete-property/ ignore-modifiers;
 };
 
+&sk {
+    release-after-ms = <2000>;
+    quick-release;
+};
+
 / {
     combos {
         compatible = "zmk,combos";
