@@ -195,7 +195,7 @@ ZMK_HOLD_TAP(lrep,
 
         RightSymbols {
             bindings = <
-&none   &none   &none   &none   &none         &kp LS(EXCL)  &kp LS(EXCL)  &kp LS(UNDER)  &kp LS(AT)    &none
+&none   &none   &none   &none   &none         &none         &kp LS(EXCL)  &kp LS(UNDER)  &kp LS(AT)    &none
 &kp N6  &kp N4  &kp N0  &kp N2  &none         &kp LS(STAR)  &kp EQUAL     &kp LS(PIPE)   &kp LS(PLUS)  &kp MINUS
 &none   &none   &none   &kp N8  &none         &kp LS(AMPS)  &kp GRAVE     &kp LS(LT)     &kp LS(GT)    &kp LS(QMARK)
                          &none  &none         &lt LSYM RET  &key_repeat
