@@ -168,12 +168,14 @@ ZMK_HOLD_TAP(lrep,
         };
 
         leftStickyShift {
+            timeout-ms = <40>;
             bindings = <&sk LSHFT>;
             key-positions = <12 23>;
             layers = <DEF>;
         };
 
         rightStickyShift {
+            timeout-ms = <40>;
             bindings = <&sk RSHFT>;
             key-positions = <17 26>;
             layers = <DEF>;
