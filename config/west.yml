@@ -9,10 +9,14 @@ manifest:
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: main
+      revision: v0.1.0
       import: app/west.yml
     - name: zmk-helpers
       remote: urob
-      revision: main
+      revision: v0.1.0
+    - name: zmk-auto-layer
+      remote: urob
+      revision: v0.1.0
+      path: modules/auto-layer
   self:
     path: config
