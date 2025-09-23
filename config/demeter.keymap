@@ -93,6 +93,18 @@ ZMK_HOLD_TAP(lrep,
             layers = <DEF>;
         };
 
+        b {
+            bindings = <&kp B>;
+            key-positions = <14 3>;
+            layers = <DEF>;
+        };
+
+        j {
+            bindings = <&kp J>;
+            key-positions = <6 15>;
+            layers = <DEF>;
+        };
+
         backspace {
             bindings = <&kp BACKSPACE>;
             key-positions = <3 4>;
