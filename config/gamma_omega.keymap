@@ -208,10 +208,10 @@ ZMK_HOLD_TAP(lrep,
 
         Navigation {
             bindings = <
-&kp F1   &kp F2    &kp F3     &kp F4     &kp F5      &kp F6  &kp F7     &kp F8      &kp F9      &kp F10
-&sk LGUI &sk LALT  &sk LCTRL  &sk LSHFT  &trans      &trans  &kp LEFT   &kp DOWN    &kp UP      &kp RIGHT
-&trans   &trans    &trans     &trans     &trans      &trans  &kp HOME   &kp PG_DN   &kp PG_UP   &kp END
-                 &none        &trans     &trans      &trans  &kp K_CANCEL    &none
+&kp F1   &kp F2    &kp F3     &kp F4     &kp F5      &kp F6         &kp F7          &kp F8      &kp F9      &kp F10
+&sk LGUI &sk LALT  &sk LCTRL  &sk LSHFT  &trans      &kp PSCRN      &kp LEFT        &kp DOWN    &kp UP      &kp RIGHT
+&trans   &trans    &trans     &trans     &trans      &kp LG(PSCRN)  &kp HOME        &kp PG_DN   &kp PG_UP   &kp END
+                 &none        &trans     &trans      &trans         &kp K_CANCEL    &none
             >;
         };
 
