@@ -1,0 +1,55 @@
+[settings]
+python.uv_venv_auto = true
+[env]
+CONFIG_REPO_PATH="/home/jakub/Dokumenty/keebs/zmk-config"
+ZMK_PATH="temp/zmk"
+
+[vars]
+common_zmk_args = """\
+   -DZMK_CONFIG=$CONFIG_REPO_PATH/config \
+   -DZMK_EXTRA_MODULES="$CONFIG_REPO_PATH/zmk-auto-layer;$CONFIG_REPO_PATH/zmk-helpers"
+"""
+
+[tasks.zmk_clone]
+run = "mkdir -p $ZMK_PATH && git clone https://github.com/zmkfirmware/zmk $ZMK_PATH"
+outputs = ["temp/zmk"]
+
+[tasks.prep]
+depends = [ "zmk_clone" ]
+dir = "temp/zmk"
+run = [
+  "uv pip install west pip",
+  "uv run west init -l app",
+  "uv run west update",
+  "uv run west zephyr-export",
+  "uv run west packages pip --install",
+  "uv run west sdk install",
+]
+description = "Prepare to run build"
+outputs = "temp/zmk/app/west.yml"
+
+[tasks.build_gamma]
+dir = "temp/zmk/app"
+run = [
+  "uv run west build --pristine -d build -b rpi_pico -- -DSHIELD=gamma_omega {{vars.common_zmk_args}}" ,
+  "cp -f build/zephyr/zmk.uf2 $CONFIG_REPO_PATH/bin/gamma_omega.uf2"
+]
+sources = [
+  "config/boards/shields/gamma_omega/*",
+  "config/default.keymap",
+  "config/gamma_omega.keymap"
+]
+
+[tasks.build_demeter]
+dir = "temp/zmk/app"
+run = [
+  "uv run west build --pristine -d build/demeter_left -b nice_nano -- -DSHIELD=demeter_left {{vars.common_zmk_args}}",
+  "cp -f build/demeter_left/zephyr/zmk.uf2 $CONFIG_REPO_PATH/bin/demeter_left.uf2",
+  "uv run west build --pristine -d build/demeter_right -b nice_nano -- -DSHIELD=demeter_right {{vars.common_zmk_args}}",
+  "cp -f build/demeter_right/zephyr/zmk.uf2 $CONFIG_REPO_PATH/bin/demeter_right.uf2",
+]
+sources = [
+  "config/boards/shields/demeter/*",
+  "config/default.keymap",
+  "config/demeter.keymap"
+]
