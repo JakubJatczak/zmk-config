@@ -53,3 +53,9 @@ sources = [
   "config/default.keymap",
   "config/demeter.keymap"
 ]
+[tasks.build_settings_reset]
+dir = "temp/zmk/app"
+run = [
+  "uv run west build --pristine -d build/settings_reset -b nice_nano -- -DSHIELD=settings_reset {{vars.common_zmk_args}}",
+  "cp -f build/settings_reset/zephyr/zmk.uf2 $CONFIG_REPO_PATH/bin/settings_reset.uf2",
+]
