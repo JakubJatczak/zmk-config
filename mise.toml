@@ -34,3 +34,24 @@ run = ["""
   "cp -f build/zephyr/zmk.uf2 $CONFIG_REPO_PATH/bin/gamma_omega.uf2"
 ]
 
+[tasks.build_demeter]
+dir = "temp/zmk/app"
+run = [
+  "uv run west build --pristine -d build/demeter_dongle -b nice_nano -- -DSHIELD=demeter_dongle {{vars.common_zmk_args}}",
+  "cp -f build/demeter_dongle/zephyr/zmk.uf2 $CONFIG_REPO_PATH/bin/demeter_dongle.uf2",
+  "uv run west build --pristine -d build/demeter_left -b nice_nano -- -DSHIELD=demeter_left {{vars.common_zmk_args}}",
+  "cp -f build/demeter_left/zephyr/zmk.uf2 $CONFIG_REPO_PATH/bin/demeter_left.uf2",
+  "uv run west build --pristine -d build/demeter_right -b nice_nano -- -DSHIELD=demeter_right {{vars.common_zmk_args}}",
+  "cp -f build/demeter_right/zephyr/zmk.uf2 $CONFIG_REPO_PATH/bin/demeter_right.uf2",
+]
+sources = [
+  "config/boards/shields/demeter/*",
+  "config/default.keymap",
+  "config/demeter.keymap"
+]
+[tasks.build_settings_reset]
+dir = "temp/zmk/app"
+run = [
+  "uv run west build --pristine -d build/settings_reset -b nice_nano -- -DSHIELD=settings_reset {{vars.common_zmk_args}}",
+  "cp -f build/settings_reset/zephyr/zmk.uf2 $CONFIG_REPO_PATH/bin/settings_reset.uf2",
+]
