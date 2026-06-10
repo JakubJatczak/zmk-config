@@ -1,33 +1,10 @@
-if SHIELD_DEMETER_DONGLE
-
-config ZMK_KEYBOARD_NAME
-	default "CaptainEliot"
-
-config ZMK_SPLIT
-	default y
-
-config ZMK_SPLIT_ROLE_CENTRAL
-	default y
-
-config ZMK_SPILT_BLE_CENTRAL_PERIPHERALS
-    int
-	default 2
-
-config BT_MAX_CONN
-    int
-	default 3
-
-config BT_MAX_PAIRED
-    int
-	default 3
-
-endif
-
 if SHIELD_DEMETER_LEFT
 
 config ZMK_KEYBOARD_NAME
-	default "DEMETER_Left"
+	default "DEMETER"
 
+config ZMK_SPLIT_BLE_ROLE_CENTRAL
+	default y
 endif
 
 
@@ -44,7 +21,5 @@ if SHIELD_DEMETER_RIGHT || SHIELD_DEMETER_LEFT
 config ZMK_SPLIT
 	default y
 
-config ZMK_SPLIT_ROLE_CENTRAL
-	default n
 
 endif
