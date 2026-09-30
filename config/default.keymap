@@ -93,6 +93,19 @@ ZMK_HOLD_TAP(lrep,
 };
 
 / {
+    macros {
+     brk_sk_l: brk_sk_l {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp F24 &macro_tap &sk LSHFT>;
+        };
+        brk_sk_r: brk_sk_r {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp F24 &macro_tap &sk RSHFT>;
+        };
+    };
+
     combos {
         compatible = "zmk,combos";
 
@@ -174,19 +187,21 @@ ZMK_HOLD_TAP(lrep,
         mouseLayer {
             bindings = <&mo MOUSE>;
             key-positions = <1 3>;
+
+
             layers = <DEF>;
         };
 
         leftStickyShift {
             timeout-ms = <40>;
-            bindings = <&sk LSHFT>;
+            bindings = <&brk_sk_l>;
             key-positions = <12 23>;
             layers = <DEF>;
         };
 
         rightStickyShift {
             timeout-ms = <40>;
-            bindings = <&sk RSHFT>;
+            bindings = <&brk_sk_r>;
             key-positions = <17 26>;
             layers = <DEF>;
         };
