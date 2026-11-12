@@ -6,10 +6,12 @@ manifest:
     # See https://docs.zephyrproject.org/3.2.0/develop/west/manifest.html#projects
     - name: urob
       url-base: https://github.com/urob
+    - name: personal
+      url-base: https://github.com/JakubJatczak
   projects:
     - name: zmk
-      remote: zmkfirmware
-      revision: v0.3.0
+      remote: personal
+      revision: v0.3.0_fixed_caps_word
       import: app/west.yml
     - name: zmk-helpers
       remote: urob
